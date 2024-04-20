@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-demo",
+  "version": "1.0.0",
+  "description": "This is a demo nodejs app",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "debug": "nodemon --inspect=5858 --delay 500ms app.js"
+  },
+  "author": "Zarrar Palekar",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.2",
+    "nodemon": "^3.1.0"
+  }
+}
