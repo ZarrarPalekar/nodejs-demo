@@ -10,4 +10,24 @@ const getMe = async (req, res) => {
   res.status(201).json(user);
 };
 
-module.exports = { getMe };
+const updateUser = async (req, res) => {
+  const user = await User.findById(req.user._id).select("-password");
+  if (!user) {
+    return res.status(403).json({ message: "User not found" });
+  }
+  const { username } = req.body;
+  if (!username) {
+    return res.status(403).json({ message: "Username is required" });
+  }
+  console.log("username: ", username);
+
+  const updatedUser = await User.findByIdAndUpdate(
+    req.user._id,
+    { username: username },
+    { new: true }
+  ).select("-password");
+
+  return res.status(201).json(updatedUser);
+};
+
+module.exports = { getMe, updateUser };

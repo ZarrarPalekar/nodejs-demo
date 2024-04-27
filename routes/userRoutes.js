@@ -8,5 +8,6 @@ router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 
 router.get("/me", authMiddleware, userController.getMe);
+router.post("/update-user", authMiddleware, userController.updateUser);
 
 module.exports = router;
