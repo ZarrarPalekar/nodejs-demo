@@ -19,7 +19,6 @@ const updateUser = async (req, res) => {
   if (!username) {
     return res.status(403).json({ message: "Username is required" });
   }
-  console.log("username: ", username);
 
   const updatedUser = await User.findByIdAndUpdate(
     req.user._id,
